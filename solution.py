@@ -11,7 +11,7 @@ inputs = json.load(sys.stdin)
 outputs = {}
 
 # Problem 1
-prblm1_input=inputs["problem1"].encode()
+prblm1_input = inputs["problem1"].encode()
 sha256_encoded_hash = hashlib.sha256(prblm1_input).hexdigest()
 md5_encoded_hash=hashlib.md5(prblm1_input).hexdigest()
 sha1_encoded_hash=hashlib.sha1(prblm1_input).hexdigest()
@@ -22,6 +22,26 @@ outputs["problem1"] = {
     "sha256": sha256_encoded_hash,
     "sha3_256" : sha3_256_encoded_hash
 }
+
+# Problem 2
+prblm2_input = inputs["problem1"].encode()
+
+modified_2 = bytearray(prblm2_input)
+modified_2[0] = ord("?")
+
+sha256_encoded_hash_2 = hashlib.sha256(modified_2).hexdigest()
+md5_encoded_hash_2=hashlib.md5(modified_2).hexdigest()
+sha1_encoded_hash_2=hashlib.sha1(modified_2).hexdigest()
+sha3_256_encoded_hash_2=hashlib.sha3_256(modified_2).hexdigest()
+outputs["problem2"] = {
+    "md5": md5_encoded_hash_2,
+    "sha1" : sha1_encoded_hash_2,
+    "sha256": sha256_encoded_hash_2,
+    "sha3_256" : sha3_256_encoded_hash_2
+}
+
+
+
 
 
 # Output
