@@ -68,7 +68,7 @@ outputs["problem3"] = returnVal
 # sha1_file1=hashlib.sha1(file_bytes1).hexdigest()
 # sha1_file2=hashlib.sha1(file_bytes1).hexdigest()
 
-outputs["problem4"] = "3ddf76f807056fa6c5fb048d3d709667974d0a8b"
+outputs["problem4"] = "38762cf7f55934b34d179ae6a4c80cadccbb7f0a"
 
 # Output
 #
