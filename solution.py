@@ -17,10 +17,6 @@ import hashlib
 inputs = json.load(sys.stdin)
 outputs = {}
 
-def encode_md5(strings: list[str]):
-    first,_ =strings
-    return md5(bytes.fromhex(first)).hexdigest()
-
 # Problem 1
 prblm1_input = inputs["problem1"].encode()
 sha256_encoded_hash = hashlib.sha256(prblm1_input).hexdigest()
@@ -60,7 +56,6 @@ prblm3_input = inputs["problem3"]
 for x in prblm3_input:
     bytString=bytes.fromhex(x)
     returnVal=hashlib.md5(bytString).hexdigest()
-    print(returnVal)
 
 outputs["problem3"] = returnVal
 
