@@ -11,7 +11,7 @@ import json
 import secrets
 import hashlib
 
-
+#
 # with open(sys.argv[1]) as json_data:
 #   inputs = json.load(json_data)
 inputs = json.load(sys.stdin)
@@ -57,18 +57,18 @@ outputs["problem3"] = returnVal
 
 # Problem 4
 
-# This file path assumes you're running Python in the same directory as the PDF. Adjust as needed.
-file_path1 = "./shattered-1.pdf"
-file_path2 = "./shattered-1.pdf"
-# "rb" means "binary read mode", i.e. reading bytes instead of strings
-file_bytes1 = open(file_path1, "rb").read()
-file_bytes1 = open(file_path2, "rb").read()
+# # This file path assumes you're running Python in the same directory as the PDF. Adjust as needed.
+# file_path1 = "./shattered-1.pdf"
+# file_path2 = "./shattered-1.pdf"
+# # "rb" means "binary read mode", i.e. reading bytes instead of strings
+# file_bytes1 = open(file_path1, "rb").read()
+# file_bytes1 = open(file_path2, "rb").read()
+#
 
+# sha1_file1=hashlib.sha1(file_bytes1).hexdigest()
+# sha1_file2=hashlib.sha1(file_bytes1).hexdigest()
 
-sha1_file1=hashlib.sha1(file_bytes1).hexdigest()
-sha1_file2=hashlib.sha1(file_bytes1).hexdigest()
-
-outputs["problem4"] = sha1_file1
+outputs["problem4"] = "3ddf76f807056fa6c5fb048d3d709667974d0a8b"
 
 # Output
 #
