@@ -46,12 +46,8 @@ outputs["problem2"] = {
     "sha256": sha256_encoded_hash_2,
     "sha3_256" : sha3_256_encoded_hash_2
 }
-
+# Problem 3
 prblm3_input = inputs["problem3"]
-
-# print (encode_md5(prblm2_input[0]))
-# print (encode_md5(prblm2_input[1]))
-#
 
 for x in prblm3_input:
     bytString=bytes.fromhex(x)
@@ -59,7 +55,22 @@ for x in prblm3_input:
 
 outputs["problem3"] = returnVal
 
-    # Output
+# Problem 4
+
+# This file path assumes you're running Python in the same directory as the PDF. Adjust as needed.
+file_path1 = "./shattered-1.pdf"
+file_path2 = "./shattered-1.pdf"
+# "rb" means "binary read mode", i.e. reading bytes instead of strings
+file_bytes1 = open(file_path1, "rb").read()
+file_bytes1 = open(file_path2, "rb").read()
+
+
+sha1_file1=hashlib.sha1(file_bytes1).hexdigest()
+sha1_file2=hashlib.sha1(file_bytes1).hexdigest()
+
+outputs["problem4"] = sha1_file1
+
+# Output
 #
 # In the video I wrote something more like `json.dump(outputs, sys.stdout)`.
 # Either way works. This way adds some indentation and a trailing newline,
