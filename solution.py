@@ -1,14 +1,25 @@
 #! /usr/bin/env python3
 
+import cryptography
+import nacl.secret
+from nacl.secret import SecretBox
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+
 import sys
 import json
+import secrets
 import hashlib
 
 
 # with open(sys.argv[1]) as json_data:
-#     inputs = json.load(json_data)
+#   inputs = json.load(json_data)
 inputs = json.load(sys.stdin)
 outputs = {}
+
+def encode_md5(strings: list[str]):
+    first,_ =strings
+    return md5(bytes.fromhex(first)).hexdigest()
 
 # Problem 1
 prblm1_input = inputs["problem1"].encode()
@@ -40,11 +51,20 @@ outputs["problem2"] = {
     "sha3_256" : sha3_256_encoded_hash_2
 }
 
+prblm3_input = inputs["problem3"]
 
+# print (encode_md5(prblm2_input[0]))
+# print (encode_md5(prblm2_input[1]))
+#
 
+for x in prblm3_input:
+    bytString=bytes.fromhex(x)
+    returnVal=hashlib.md5(bytString).hexdigest()
+    print(returnVal)
 
+outputs["problem3"] = returnVal
 
-# Output
+    # Output
 #
 # In the video I wrote something more like `json.dump(outputs, sys.stdout)`.
 # Either way works. This way adds some indentation and a trailing newline,
