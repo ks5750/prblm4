@@ -70,6 +70,26 @@ outputs["problem3"] = returnVal
 
 outputs["problem4"] = "38762cf7f55934b34d179ae6a4c80cadccbb7f0a"
 
+def infinity():
+    while True:
+        yield
+# Problem 5
+
+prblm5_input = inputs["problem5"]
+cnt=prblm5_input+1
+for x in infinity():
+    in_bytes=cnt.to_bytes(8, "little")
+    cnt_bytes=hashlib.sha256(in_bytes).hexdigest()
+    if cnt_bytes.startswith("000000"):
+        break
+    else:
+        cnt += 1
+
+tries=cnt-prblm5_input+1
+outputs["problem5"] = {
+    "lucky_hash": cnt_bytes,
+    "tries" : tries,
+}
 # Output
 #
 # In the video I wrote something more like `json.dump(outputs, sys.stdout)`.
